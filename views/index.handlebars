@@ -1,0 +1,48 @@
+<h1> Eat Da Burger </h1>
+
+<main>
+    {{!-- shows available burgers and the option to devour them  --}}
+    <div class="container" id="burgers-available">
+        <div class = "row">
+            <div class="col-md-5">
+                {{#each burgers}}<!--each helper allows us to reiterate over a list, display burgers here-->
+                    {{#unless this.devoured}} <!--unless helper is inverse of if, renders if false value-->
+
+            </div>
+        </div>
+        {{!-- <input type = "input"> --}}
+        <form action="/burgers/{{this.id}}?_method=PUT" method="POST">
+        {{!-- The action attribute specifies where to send the form-data when a form is submitted --}}
+            <button type = "submit" class="burger-chosen">{{this.burger_name}}</button>
+        </form>
+         {{/unless}}
+        {{/each}}
+       
+    </div>
+
+{{!-- creating eaten burgers section --}}
+        <div class = "col-md-5">
+            {{#each burgers}} 
+                {{#if this.devoured}} <!--for each burger, if devoured then get name/id of burger-->
+                    <div class = "burger-eaten">
+                     {{ this.burger_name}} <!--the selected burger that is devoured -->
+                    </div>
+                    {{/if}}
+                    {{/each}}
+        </div>
+        </main>
+
+{{!-- allowing user to add burger --}}
+        <h2>Add a Burger</h2>
+        <div class="row">
+            <div class="col-md-12">
+                <form action="/burgers" method="POST">
+                    <input type="text" id="name" name="burger_name" placeholder="Enter a burger.">
+                        <button type="submit" class="adding-new-burger">Add Burger</button>
+                </form>
+            </div>
+        </div>
+               
+
+
+
