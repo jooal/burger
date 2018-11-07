@@ -20,7 +20,7 @@
             </div>
         </div>
         {{!-- <input type = "input"> --}}
-        <form action="/burgers/{{this.id}}?_method=PUT" method="POST">
+        <form action="/burgers/updateOne{{this.id}}?_method=PUT" method="POST">
         {{!-- The action attribute specifies where to send the form-data when a form is submitted --}}
             <button type = "submit" class="burger-chosen">{{this.burger_name}}</button>
         </form>
